@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laiba Aftab - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Added Font Awesome for icons (free and easy to use) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); /* Pink gradient background */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Subtle background pattern for texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+        header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); /* Pink gradient for header */
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease-in;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated background for header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+        header h1, header p {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-size: 1.6em;
+            margin-top: 10px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        .welcome {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: slideUp 1.5s ease-out;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .welcome p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            margin: 0 15px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); /* Pink gradient for buttons */
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .btn i {
+            margin-right: 10px;
+        }
+        #projects {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 40px 20px;
+        }
+        #projects h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .project {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b9d, #c44569); /* Pink accent */
+            border-radius: 20px 20px 0 0;
+        }
+        .project:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .project h3 {
+            margin-top: 0;
+            color: #ff6b9d; /* Pink for headings */
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .project p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .project .btn {
+            margin-top: 15px;
+        }
+        #contact {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); /* Pink gradient for contact */
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+        #contact h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            position: relative;
+            z-index: 1;
+        }
+        #contact p {
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            min-width: 200px;
+        }
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: white;
+            font-size: 0.9em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .welcome { padding: 25px; margin: 30px auto; }
+            .buttons { flex-direction: column; align-items: center; }
+            .btn { margin: 10px 0; padding: 12px 25px; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .project { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hi, I'm Laiba Aftab</h1>
+        <p class="subtitle">A passionate Computer Science Student at Women University</p>
+    </header>
+    
+    <section class="welcome">
+        <p>Welcome to my digital space, where logic meets creativity. As a dedicated Computer Science Student at Women University, I delve into the elegant structures of code and algorithms, translating complex theoretical understanding into practical, innovative solutions. Explore my projects to witness how analytical rigor and a passion for problem-solving converge.</p>
+        <div class="buttons">
+            <a href="#projects" class="btn"><i class="fas fa-eye"></i>View My Work</a>
+            <a href="#contact" class="btn"><i class="fas fa-envelope"></i>Get In Touch</a>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <h3><i class="fas fa-code"></i> Algorithm Optimization Tool (by Laiba Aftab)</h3>
+            <p>A Python-based tool for optimizing sorting algorithms, demonstrating efficiency in data structures. Built during my Computer Science studies at Women University.</p>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i>View Project</a> <!-- Replace # with actual link -->
+        </div>
+        <div class="project">
+            <h3><i class="fas fa-globe"></i> Web Development Portfolio Site (by Laiba Aftab)</h3>
+            <p>A responsive website using HTML, CSS, and JavaScript, showcasing front-end skills and creative design. Developed as part of my coursework.</p>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i>View Project</a> <!-- Replace # with actual link -->
+        </div>
+        <div class="project">
+            <h3><i class="fas fa-brain"></i> Machine Learning Model for Data Prediction (by Laiba Aftab)</h3>
+            <p>An ML project using Python and scikit-learn to predict trends in datasets, highlighting problem-solving in AI applications.</p>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i>View Project</a> <!-- Replace # with actual link -->
+        </div>
+        <!-- Add more projects as needed -->
+    </section>
+    
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Interested in collaborating? Reach out via the details below!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i><br>
+                <strong>Email:</strong> <a href="mailto:superaftab5@gmail.com">superaftab5@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i><br>
+                <strong>Instagram:</strong> <a href="https://instagram.com/laibaaftab321" target="_blank">@laibaaftab321</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i><br>
+                <strong>Phone:</strong> [Your Phone Number Here] <!-- Replace with your actual phone number -->
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Laiba Aftab. All rights reserved.</p>
+    </footer>
+</body>
+</html>
