@@ -1,3 +1,2 @@
-# Web-Technology
-This is my first  git repository
-I'm Laiba Aftab.I'm student of Women University.
+#Web Developer 
+"Hello! I'm Laiba Aftab, a driven and passionate student at Women University, pursuing a degree in Computer Science. By day, I'm a tech enthusiast, and by code, I'm a web developer. I'm excited to explore the world of technology and innovation, and I'm always looking for opportunities to learn and grow. Let's connect and explore the possibilities of tech together!"
